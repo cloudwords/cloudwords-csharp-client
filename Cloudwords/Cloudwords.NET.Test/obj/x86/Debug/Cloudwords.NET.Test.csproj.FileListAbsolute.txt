@@ -1,0 +1,9 @@
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET.Test\bin\Debug\Cloudwords.NET.Test.exe
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET.Test\bin\Debug\Cloudwords.NET.Test.pdb
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET.Test\bin\Debug\Cloudwords.NET.dll
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET.Test\bin\Debug\Newtonsoft.Json.dll
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET.Test\bin\Debug\Cloudwords.NET.pdb
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET.Test\bin\Debug\Newtonsoft.Json.xml
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET.Test\obj\x86\Debug\Cloudwords.NET.Test.csprojResolveAssemblyReference.cache
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET.Test\obj\x86\Debug\Cloudwords.NET.Test.exe
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET.Test\obj\x86\Debug\Cloudwords.NET.Test.pdb
