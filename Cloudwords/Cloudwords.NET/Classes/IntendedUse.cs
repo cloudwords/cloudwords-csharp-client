@@ -13,5 +13,16 @@ namespace Cloudwords.NET.Classes
         {
             name = "";
         }
+        public IntendedUse(int ID)
+        {
+            name = "";
+            id = ID;
+        }
+        public IntendedUse(string Name, int ID)
+        {
+            name = Name;
+            id = ID;
+        }
+
     }
 }

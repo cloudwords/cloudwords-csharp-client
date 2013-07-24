@@ -13,5 +13,15 @@ namespace Cloudwords.NET.Classes
         {
             name = "";
         }
+        public Department(int ID)
+        {
+            name = "";
+            id = ID;
+        }
+        public Department(string Name,int ID)
+        {
+            name = Name;
+            id = ID;
+        }
     }
 }

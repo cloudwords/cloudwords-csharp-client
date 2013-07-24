@@ -13,5 +13,15 @@ namespace Cloudwords.NET.Classes
         {
             display = "";
         }
+        public TargetLanguage(string LanguageCode)
+        {
+            display = "";
+            languageCode = LanguageCode;
+        }
+        public TargetLanguage(string Display,string LanguageCode)
+        {
+            display = Display;
+            languageCode = LanguageCode;
+        }
     }
 }

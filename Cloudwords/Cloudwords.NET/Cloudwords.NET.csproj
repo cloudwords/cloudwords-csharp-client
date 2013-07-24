@@ -46,6 +46,7 @@
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\Follower.cs" />
     <Compile Include="Classes\IntendedUse.cs" />
+    <Compile Include="Classes\MIMEAssistant.cs" />
     <Compile Include="Classes\Owner.cs" />
     <Compile Include="Classes\Project.cs" />
     <Compile Include="Classes\RestServiceClient.cs" />

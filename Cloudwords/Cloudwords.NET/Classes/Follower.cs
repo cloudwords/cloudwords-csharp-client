@@ -15,5 +15,17 @@ namespace Cloudwords.NET.Classes
             firstName="";
             lastName = "";
         }
+         public Follower(int ID)
+        {
+            firstName = "";
+            lastName = "";
+            id = ID;
+        }
+         public Follower(string FirstName, string LastName, int ID)
+        {
+            firstName = FirstName;
+            lastName = LastName;
+            id = ID;
+        }
     }
 }
