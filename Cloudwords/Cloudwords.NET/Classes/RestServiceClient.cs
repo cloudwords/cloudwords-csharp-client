@@ -95,10 +95,12 @@ namespace Cloudwords.NET.Classes
                         using (var responseStream = response.GetResponseStream())
                         {
                             if (responseStream != null)
+                            {
                                 using (var reader = new StreamReader(responseStream))
                                 {
                                     responseValue = reader.ReadToEnd();
                                 }
+                            }
                         }
                     }
                     else

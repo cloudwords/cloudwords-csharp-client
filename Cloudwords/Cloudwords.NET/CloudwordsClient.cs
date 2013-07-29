@@ -338,5 +338,82 @@ namespace Cloudwords.NET
             }
             return response;
         }
+        public string CreateBidRequest( int projectID, BidRequest bidRequest)
+        {
+            string response = "";
+            try
+            {
+                IsoDateTimeConverter converter = new IsoDateTimeConverter();
+                converter.DateTimeFormat = "yyyy-MM-ddTHH:mm:ss.fffZ";
+                converter.Culture = System.Globalization.CultureInfo.InvariantCulture;
+                string jsonData = JsonConvert.SerializeObject(bidRequest, converter);
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/bid-request", APIToken, Enums.HttpVerb.POST, jsonData);
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+
+            return response;
+        }
+        public string GetBidRequest(int projectID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/bid-request/current.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string SelectAWinningBid(int projectID, int winningBidId)
+        {
+            string response = "";
+            try
+            {
+                WinningBid winningBid = new WinningBid(winningBidId);
+                string jsonData = JsonConvert.SerializeObject(winningBid);
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/bid-request", APIToken, Enums.HttpVerb.PUT, jsonData);
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetAllBids(int projectID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/bid.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetBid(int projectID,int bidID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/bid/" + bidID + ".json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
     }
 }

@@ -48,10 +48,25 @@ namespace Cloudwords.NET.Test
            // Console.WriteLine(DownloadReferenceMaterial_Test());
 
            // Test Upload Reference Material function
-           Console.WriteLine(UploadReferenceMaterial_Test());
+           // Console.WriteLine(UploadReferenceMaterial_Test());
 
            // Test Update Reference Material function
            // Console.WriteLine(UpdateReferenceMaterial_Test());
+
+            // Test Create Bid Request function
+            // Console.WriteLine(CreateBidRequest_Test());
+            
+           // Test Get Bid Request function
+           // Console.WriteLine(GetBidRequest_Test());
+
+           // Test Select A Winning Bid function
+           // Console.WriteLine(SelectAWinningBid_Test());
+
+           // Test Get All Bids function
+           // Console.WriteLine(GetAllBids_Test());
+
+           // Test Get Bid function
+           Console.WriteLine(GetBid_Test());
 
             Console.ReadLine();
 
@@ -158,6 +173,33 @@ namespace Cloudwords.NET.Test
         private static string UpdateReferenceMaterial_Test()
         {
             return (String)client.UpdateReferenceMaterial(10159, 13011, @"C:\test.xls_2_updated.zip");
+        }
+
+        private static string CreateBidRequest_Test()
+        {
+            BidRequest bidRequest = new BidRequest();
+            bidRequest.doLetCloudwordsChoose=false;
+            List<PreferredVendor> preferredVendorList= new List<PreferredVendor>();
+            preferredVendorList.Add(new PreferredVendor(3319));
+            bidRequest.preferredVendors = preferredVendorList;
+            bidRequest.doAutoSelectBidFromVendor=false;
+            return client.CreateBidRequest(10149,bidRequest);
+        }
+        private static string GetBidRequest_Test()
+        {
+            return client.GetBidRequest(10149);
+        }
+        private static string SelectAWinningBid_Test()
+        {
+            return client.SelectAWinningBid(10149,7793);
+        }
+        private static string GetAllBids_Test()
+        {
+            return client.GetAllBids(10149);
+        }
+        private static string GetBid_Test()
+        {
+            return client.GetBid(10149, 7793);
         }
         
         
