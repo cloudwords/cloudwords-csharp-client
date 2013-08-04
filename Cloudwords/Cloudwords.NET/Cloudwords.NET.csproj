@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Assignee.cs" />
     <Compile Include="Classes\BidRequest.cs" />
+    <Compile Include="Classes\CustomerUser.cs" />
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\Follower.cs" />
     <Compile Include="Classes\IntendedUse.cs" />
@@ -51,10 +53,15 @@
     <Compile Include="Classes\Owner.cs" />
     <Compile Include="Classes\PreferredVendor.cs" />
     <Compile Include="Classes\Project.cs" />
+    <Compile Include="Classes\ProjectTask.cs" />
     <Compile Include="Classes\RestServiceClient.cs" />
     <Compile Include="Classes\SourceLanguage.cs" />
     <Compile Include="Classes\Status.cs" />
     <Compile Include="Classes\TargetLanguage.cs" />
+    <Compile Include="Classes\TaskFollower.cs" />
+    <Compile Include="Classes\TaskTargetLanguage.cs" />
+    <Compile Include="Classes\TranslatedMaterialStatus.cs" />
+    <Compile Include="Classes\Vendor.cs" />
     <Compile Include="Classes\WinningBid.cs" />
     <Compile Include="CloudwordsClient.cs" />
     <Compile Include="Enums\Enums.cs" />

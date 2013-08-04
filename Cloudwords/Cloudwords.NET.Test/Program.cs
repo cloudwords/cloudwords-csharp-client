@@ -66,8 +66,53 @@ namespace Cloudwords.NET.Test
            // Console.WriteLine(GetAllBids_Test());
 
            // Test Get Bid function
-           Console.WriteLine(GetBid_Test());
+           // Console.WriteLine(GetBid_Test());
 
+           // Test Get the Bundled Translated Materials function
+           // Console.WriteLine(GetBundledTranslatedMaterials_Test());
+           
+           // Test Download Bundled Translated Materials function
+           // Console.WriteLine(DownloadBundledTranslatedMaterials_Test());
+          
+           // Test Get All Translated Materials by language function
+           // Console.WriteLine(GetAllTranslatedMaterialsByLanguage_Test());
+            
+            // Test Get A Translated Material by language function
+            // Console.WriteLine(GetATranslatedMaterialByLanguage_Test());
+
+           // Test Download Translated Material by Language function
+           // Console.WriteLine(DownloadTranslatedMaterialByLanguage_Test());
+
+           // Test Approve a Translated Material function
+           // Console.WriteLine(ApproveTranslatedMaterial_Test());
+
+           // Test Get Project Tasks function
+           // Console.WriteLine(GetProjectTasks_Test());
+
+           // Test Get Project Tasks with Status function
+           //Console.WriteLine(GetProjectTasksWithStatus_Test());
+
+           // Test Get Project Task function
+           // Console.WriteLine(GetProjectTask_Test());
+
+           // Test Get All Project Tasks function
+           // Console.WriteLine(GetAllProjectTasks_Test());
+
+           // Test Get All Project Tasks With Status function
+           //Console.WriteLine(GetAllProjectTasksWithStatus_Test());
+
+           // Test Create Project Task function
+           // Console.WriteLine(CreateProjectTask_Test());
+
+           // Test Update Project Task function
+           // Console.WriteLine(UpdateProjectTask_Test());
+           
+           // Test Upload Task Attachment function
+           // Console.WriteLine(UploadTaskAttachment_Test());
+
+           // Test Get Task Attachment function
+           // Console.WriteLine(GetTaskAttachment_Test());
+            
             Console.ReadLine();
 
         }
@@ -174,7 +219,6 @@ namespace Cloudwords.NET.Test
         {
             return (String)client.UpdateReferenceMaterial(10159, 13011, @"C:\test.xls_2_updated.zip");
         }
-
         private static string CreateBidRequest_Test()
         {
             BidRequest bidRequest = new BidRequest();
@@ -191,15 +235,89 @@ namespace Cloudwords.NET.Test
         }
         private static string SelectAWinningBid_Test()
         {
-            return client.SelectAWinningBid(10149,7793);
+            return client.SelectAWinningBid(10159,7797);
         }
         private static string GetAllBids_Test()
         {
-            return client.GetAllBids(10149);
+            return client.GetAllBids(10159);
         }
         private static string GetBid_Test()
         {
             return client.GetBid(10149, 7793);
+        }
+        private static string GetBundledTranslatedMaterials_Test()
+        {
+            return client.GetBundledTranslatedMaterials(10159);
+        }
+        private static HttpWebResponse DownloadBundledTranslatedMaterials_Test()
+        {
+            return client.DownloadBundledTranslatedMaterials(10159);
+        }
+        private static string GetAllTranslatedMaterialsByLanguage_Test()
+        {
+            return client.GetAllTranslatedMaterialsByLanguage(10159);
+        }
+        private static string GetATranslatedMaterialByLanguage_Test()
+        {
+            return client.GetATranslatedMaterialByLanguage(10159,"fr");
+        }
+        private static HttpWebResponse DownloadTranslatedMaterialByLanguage_Test()
+        {
+            return client.DownloadTranslatedMaterialByLanguage(10159,"fr");
+        }
+        private static string ApproveTranslatedMaterial_Test()
+        {
+            return client.ApproveTranslatedMaterial(10159, "fr");
+        }
+        private static string GetProjectTasks_Test()
+        {
+            return client.GetProjectTasks(10159);
+        }
+        private static string GetProjectTasksWithStatus_Test()
+        {
+            return client.GetProjectTasksWithStatus(10159,"closed");
+        }
+        private static string GetProjectTask_Test()
+        {
+            return client.GetProjectTask(10159, 29427);
+        }
+        private static string GetAllProjectTasks_Test()
+        {
+            return client.GetAllProjectTasks();
+        }
+        private static string GetAllProjectTasksWithStatus_Test()
+        {
+            return client.GetAllProjectTasksWithStatus("closed");
+        }
+        private static string CreateProjectTask_Test()
+        {
+            ProjectTask projectTask= new ProjectTask();
+            projectTask.name="test Task";
+            projectTask.type="custom";
+            projectTask.assignee= new Assignee(new CustomerUser(845));
+            projectTask.dueDate = null;
+            projectTask.startDate = null;
+            //projectTask.description="test task description";
+            return client.CreateProjectTask(10159, projectTask);
+        }
+        private static string UpdateProjectTask_Test()
+        {
+            ProjectTask projectTask= new ProjectTask();
+            projectTask.name="test Task";
+            projectTask.type="custom";
+            projectTask.assignee= new Assignee(new CustomerUser(845));
+            projectTask.dueDate = null;
+            projectTask.startDate = null;
+            //projectTask.description="test task description";
+            return client.UpdateProjectTask(10159,1, projectTask);
+        }
+        private static string UploadTaskAttachment_Test()
+        {
+            return (String)client.UploadTaskAttachment(10159, 1,@"C:\test.xls_2.zip");
+        }
+        private static string GetTaskAttachment_Test()
+        {
+            return (String)client.GetTaskAttachment(10159, 1);
         }
         
         
