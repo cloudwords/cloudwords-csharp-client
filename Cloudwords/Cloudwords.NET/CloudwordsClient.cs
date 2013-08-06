@@ -661,6 +661,135 @@ namespace Cloudwords.NET
             }
             return response;
         }
+        public string GetPreferredVendors()
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "vendor/preferred.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetAVendor(int vendorID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "vendor/" + vendorID + ".json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetSourceLanguages()
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "org/settings/project/language/source.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetTargetLanguages()
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "org/settings/project/language/target.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetDepartments()
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "department.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string CreateDepartment(string departmentName)
+        {
+            string response = "";
+            try
+            {
+                var department = new { name=departmentName};
+
+                string jsonData = JsonConvert.SerializeObject(department);
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "department", APIToken, Enums.HttpVerb.POST, jsonData);
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetCurrentUser()
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "user/current.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetActiveUsers()
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "user.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetAvailableFollowers()
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "follower/available.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
 
     }
 }

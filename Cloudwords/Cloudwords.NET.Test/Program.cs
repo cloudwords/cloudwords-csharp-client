@@ -15,10 +15,10 @@ namespace Cloudwords.NET.Test
            client = new CloudwordsClient(true, "bb8568eb355aa091fb5bee0fcad5e902afd5f268217919488c269fbd3de73455");
 
             // Test Create Project function
-            //Console.WriteLine(CreateProject_Test());
+           //Console.WriteLine(CreateProject_Test());
 
-            // Test Get Project function
-            //Console.WriteLine(GetProject_Test());
+           // Test Get Project function
+           //Console.WriteLine(GetProject_Test());
 
            // Test Get Open Projects function
            //Console.WriteLine(GetOpenProjects_Test());
@@ -32,7 +32,7 @@ namespace Cloudwords.NET.Test
            // Test Get Source Material function
            // Console.WriteLine(GetSourceMaterial_Test());
 
-            // Test Download Source Material function
+           // Test Download Source Material function
            //Console.WriteLine(DownloadSourceMaterial_Test());
 
            // Test Upload Source Material function
@@ -53,8 +53,8 @@ namespace Cloudwords.NET.Test
            // Test Update Reference Material function
            // Console.WriteLine(UpdateReferenceMaterial_Test());
 
-            // Test Create Bid Request function
-            // Console.WriteLine(CreateBidRequest_Test());
+           // Test Create Bid Request function
+           // Console.WriteLine(CreateBidRequest_Test());
             
            // Test Get Bid Request function
            // Console.WriteLine(GetBidRequest_Test());
@@ -77,8 +77,8 @@ namespace Cloudwords.NET.Test
            // Test Get All Translated Materials by language function
            // Console.WriteLine(GetAllTranslatedMaterialsByLanguage_Test());
             
-            // Test Get A Translated Material by language function
-            // Console.WriteLine(GetATranslatedMaterialByLanguage_Test());
+           // Test Get A Translated Material by language function
+           // Console.WriteLine(GetATranslatedMaterialByLanguage_Test());
 
            // Test Download Translated Material by Language function
            // Console.WriteLine(DownloadTranslatedMaterialByLanguage_Test());
@@ -99,7 +99,7 @@ namespace Cloudwords.NET.Test
            // Console.WriteLine(GetAllProjectTasks_Test());
 
            // Test Get All Project Tasks With Status function
-           //Console.WriteLine(GetAllProjectTasksWithStatus_Test());
+           // Console.WriteLine(GetAllProjectTasksWithStatus_Test());
 
            // Test Create Project Task function
            // Console.WriteLine(CreateProjectTask_Test());
@@ -112,8 +112,35 @@ namespace Cloudwords.NET.Test
 
            // Test Get Task Attachment function
            // Console.WriteLine(GetTaskAttachment_Test());
+
+           // Test Get Preferred Vendors function
+           // Console.WriteLine(GetPreferredVendors_Test());
+           
+           // Test Get A Vendor function
+           // Console.WriteLine(GetVendor_Test());
+
+           // Test Get Source Languages function
+           // Console.WriteLine(GetSourceLanguages_Test());
             
-            Console.ReadLine();
+           // Test Get Target Languages function
+           // Console.WriteLine(GetTargetLanguages_Test());
+
+           // Test Get Departments function
+           // Console.WriteLine(GetDepartments_Test());
+
+           // Test Create Department function
+           // Console.WriteLine(CreateDepartment_Test());
+            
+           // Test current user function
+           // Console.WriteLine(GetCurrentUser_Test());
+           
+           // Test Active users function
+           // Console.WriteLine(GetActiveUsers_Test());
+
+           // Test Get Available Followers function
+           // Console.WriteLine(GetAvailableFollowers_Test());
+
+           Console.ReadLine();
 
         }
         private static string CreateProject_Test()
@@ -319,7 +346,42 @@ namespace Cloudwords.NET.Test
         {
             return (String)client.GetTaskAttachment(10159, 1);
         }
-        
+        private static string GetPreferredVendors_Test()
+        {
+            return (String)client.GetPreferredVendors();
+        }
+        private static string GetVendor_Test()
+        {
+            return (String)client.GetAVendor(3319);
+        }
+        private static string GetSourceLanguages_Test()
+        {
+            return (String)client.GetSourceLanguages();
+        }
+        private static string GetTargetLanguages_Test()
+        {
+            return (String)client.GetTargetLanguages();
+        }
+        private static string GetDepartments_Test()
+        {
+            return (String)client.GetDepartments();
+        }
+        private static string CreateDepartment_Test()
+        {
+            return (String)client.CreateDepartment("sk_test");
+        }
+        private static string GetCurrentUser_Test()
+        {
+            return (String)client.GetCurrentUser();
+        }
+        private static string GetActiveUsers_Test()
+        {
+            return (String)client.GetActiveUsers();
+        }
+        private static string GetAvailableFollowers_Test()
+        {
+            return (String)client.GetAvailableFollowers();
+        }
         
     }
 }
