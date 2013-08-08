@@ -790,6 +790,89 @@ namespace Cloudwords.NET
             }
             return response;
         }
-
+        public string GetOpenProjectsByDepartment(int departmentID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "department/" + departmentID + "/project/open.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetClosedProjectsByDepartment(int departmentID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "department/" + departmentID + "/project/closed.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetAllProjectTasksByDepartment(int departmentID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "department/" + departmentID + "/task.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetAllProjectTasksWithStatusByDepartment(int departmentID,string status)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "department/" + departmentID + "/task/status/" + status + ".json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetActiveUsersByDepartment(int departmentID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "department/" + departmentID + "/user.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetAvailableFollowersByDepartment(int departmentID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "department/" + departmentID + "/follower/available.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
     }
 }

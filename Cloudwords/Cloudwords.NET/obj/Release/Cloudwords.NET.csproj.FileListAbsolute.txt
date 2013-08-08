@@ -1,0 +1,6 @@
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET\bin\Release\Cloudwords.NET.dll
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET\bin\Release\Cloudwords.NET.pdb
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET\bin\Release\Newtonsoft.Json.dll
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET\bin\Release\Newtonsoft.Json.xml
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET\obj\Release\Cloudwords.NET.dll
+C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET\obj\Release\Cloudwords.NET.pdb

@@ -140,6 +140,24 @@ namespace Cloudwords.NET.Test
            // Test Get Available Followers function
            // Console.WriteLine(GetAvailableFollowers_Test());
 
+           // TestGet Open Projects by department function
+           // Console.WriteLine(GetOpenProjectsByDepartment_Test());
+
+           // TestGet Closed Projects by department function
+           // Console.WriteLine(GetClosedProjectsByDepartment_Test());
+        
+           // TestGet All Projects Tasks by department function
+           // Console.WriteLine(GetAllProjectTasksByDepartment_Test());
+           
+           // TestGet All Projects Tasks by status by department function
+           // Console.WriteLine(GetAllProjectTasksWithStatusByDepartment_Test());
+           
+           // TestGet Active users by department function
+           // Console.WriteLine(GetActiveUsersByDepartment_Test());
+           
+           // TestGet Available Followers by department function
+           Console.WriteLine(GetAvailableFollowersByDepartment_Test());
+            
            Console.ReadLine();
 
         }
@@ -381,6 +399,30 @@ namespace Cloudwords.NET.Test
         private static string GetAvailableFollowers_Test()
         {
             return (String)client.GetAvailableFollowers();
+        }
+        private static string GetOpenProjectsByDepartment_Test()
+        {
+            return (String)client.GetOpenProjectsByDepartment(335);
+        }
+        private static string GetClosedProjectsByDepartment_Test()
+        {
+            return (String)client.GetClosedProjectsByDepartment(335);
+        }
+        private static string GetAllProjectTasksByDepartment_Test()
+        {
+            return (String)client.GetAllProjectTasksByDepartment(335);
+        }
+        private static string GetAllProjectTasksWithStatusByDepartment_Test()
+        {
+            return (String)client.GetAllProjectTasksWithStatusByDepartment(335,"opened");
+        }
+        private static string GetActiveUsersByDepartment_Test()
+        {
+            return (String)client.GetActiveUsersByDepartment(335);
+        }
+        private static string GetAvailableFollowersByDepartment_Test()
+        {
+            return (String)client.GetAvailableFollowersByDepartment(325);
         }
         
     }
