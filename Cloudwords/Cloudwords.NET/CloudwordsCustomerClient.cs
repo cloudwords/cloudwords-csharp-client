@@ -11,20 +11,14 @@ using System.IO;
 
 namespace Cloudwords.NET
 {
-    public class CloudwordsClient
+    public class CloudwordsCustomerClient
     {
         private string API_URL { get; set; } 
-        public bool TestMode { get; set; }
         public string APIToken { get; set; }
-        public CloudwordsClient(bool testMode, string apiToken)
+        public CloudwordsCustomerClient(string url, string apiToken)
         {
-            TestMode = TestMode;
             APIToken = apiToken;
-            
-            if(testMode)
-                API_URL = "https://api-stage.cloudwords.com/1/";
-            else
-                API_URL = "https://api.cloudwords.com/1/";
+            API_URL = url;
         }
         public string CreateProject(Project project)
         {

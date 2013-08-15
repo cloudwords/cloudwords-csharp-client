@@ -40,7 +40,8 @@ namespace Cloudwords.NET.Classes
             if (!string.IsNullOrEmpty(PostData) && (Method == HttpVerb.POST ||Method == HttpVerb.PUT))
             {
                 var encoding = new UTF8Encoding();
-                var bytes = Encoding.GetEncoding("iso-8859-1").GetBytes(PostData);
+                // change encoding type
+                var bytes = Encoding.GetEncoding("UTF-8").GetBytes(PostData);
                 request.ContentLength = bytes.Length;
 
                 using (var writeStream = request.GetRequestStream())
@@ -64,6 +65,7 @@ namespace Cloudwords.NET.Classes
                 postParameters.Add("fileformat", fInfo.Extension);
                 postParameters.Add("file", new FileParameter(data, fInfo.Name, MIMEAssistant.GetMimeType(fInfo.Extension)));
 
+                
                 string userAgent = "Someone";
 
                 string formDataBoundary = String.Format("----------{0:N}", Guid.NewGuid());

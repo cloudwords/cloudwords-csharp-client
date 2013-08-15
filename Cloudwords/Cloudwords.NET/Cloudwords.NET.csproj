@@ -63,7 +63,8 @@
     <Compile Include="Classes\TranslatedMaterialStatus.cs" />
     <Compile Include="Classes\Vendor.cs" />
     <Compile Include="Classes\WinningBid.cs" />
-    <Compile Include="CloudwordsClient.cs" />
+    <Compile Include="CloudwordsCustomerClient.cs" />
+    <Compile Include="CloudwordsVendorClient.cs" />
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
