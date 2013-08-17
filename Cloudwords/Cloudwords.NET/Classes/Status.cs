@@ -19,5 +19,9 @@ namespace Cloudwords.NET.Classes
             code = Code;
             display = Display;
         }
+        public Status()
+        {
+
+        }
     }
 }

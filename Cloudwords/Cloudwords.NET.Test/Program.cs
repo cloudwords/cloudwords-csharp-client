@@ -5,6 +5,9 @@ using System.Text;
 using Cloudwords.NET;
 using Cloudwords.NET.Classes;
 using System.Net;
+using Newtonsoft.Json;
+using System.Xml;
+using Newtonsoft.Json.Converters;
 namespace Cloudwords.NET.Test
 {
     class Program
@@ -15,7 +18,10 @@ namespace Cloudwords.NET.Test
         static void Main(string[] args)
         {
             customerClient = new CloudwordsCustomerClient("https://api-stage.cloudwords.com/1/", "bb8568eb355aa091fb5bee0fcad5e902afd5f268217919488c269fbd3de73455");
-            vendorClient = new CloudwordsVendorClient("https://api-sandbox.cloudwords.com/1/", "037a0a158e362009512aa09cdaacddc5ac95e77d8bcb028f7e5a3e9c95f74deb");
+           // vendorClient = new CloudwordsVendorClient("https://api-sandbox.cloudwords.com/1/", "037a0a158e362009512aa09cdaacddc5ac95e77d8bcb028f7e5a3e9c95f74deb");
+            vendorClient = new CloudwordsVendorClient("https://api-sandbox.cloudwords.com/1/", "a5e8810e6a4b5639bb99a7cc95d234d18083557d74ac26b5e9201f8511dfbdb8");
+           
+            
             // Test Create Project function
            // Console.WriteLine(Customer_CreateProject_Test());
 
@@ -166,8 +172,33 @@ namespace Cloudwords.NET.Test
            // Test Vendor Get Closed Projects function
            // Console.WriteLine(Vendor_GetClosedProjects_Test());
             
-            // Test Vendor Get Project function
+           // Test Vendor Get Project function
            //  Console.WriteLine(Vendor_GetProject_Test());
+           
+           // Test Vendor Get Source Material function
+           //  Console.WriteLine(Vendor_GetSourceMaterial_Test());
+            
+           // Test Vendor Download Source Material function
+           //   Console.WriteLine(Vendor_DownloadSourceMaterial_Test());
+
+           // Test Vendor Get All Reference Materials function
+           // Console.WriteLine(Vendor_GetAllReferenceMaterials_Test());
+            
+            // Test Vendor Get A Reference Material function
+            //Console.WriteLine(Vendor_GetAReferenceMaterial_Test());
+
+            // Test Vendor Download Reference Material function
+            //Console.WriteLine(Vendor_DownloadReferenceMaterial_Test());
+
+            // Test Vendor Get Bid function
+            // Console.WriteLine(Vendor_GetBid_Test());
+
+            // Test Vendor Accept/Reject Bid function
+            //Console.WriteLine(Vendor_AcceptRejectBid_Test());
+            
+             // Test Vendor Submit Bid function
+            Console.WriteLine(Vendor_SubmitBid_Test());
+            
             
            Console.ReadLine();
 
@@ -448,5 +479,58 @@ namespace Cloudwords.NET.Test
         {
             return vendorClient.GetProject(117);
         }
+        private static string Vendor_GetSourceMaterial_Test()
+        {
+            return vendorClient.GetSourceMaterial(117);
+        }
+        private static HttpWebResponse Vendor_DownloadSourceMaterial_Test()
+        {
+            return vendorClient.DownloadSourceMaterial(117);
+        }
+        private static string Vendor_GetAllReferenceMaterials_Test()
+        {
+            return vendorClient.GetAllReferenceMaterials(117);
+        }
+        private static string Vendor_GetAReferenceMaterial_Test()
+        {
+            return vendorClient.GetAReferenceMaterial(117, 443);
+        }
+        private static HttpWebResponse Vendor_DownloadReferenceMaterial_Test()
+        {
+            return vendorClient.DownloadReferenceMaterial(117, 443);
+        }
+        private static string Vendor_GetBid_Test()
+        {
+            return vendorClient.GetBid(117);
+        }
+        private static string Vendor_AcceptRejectBid_Test()
+        {
+            return vendorClient.AcceptRejectBid(131, "vendor_accepted");
+        }
+        private static string Vendor_SubmitBid_Test()
+        {
+            string strBid=vendorClient.GetBid(117);
+            Bid bid = JsonConvert.DeserializeObject<Bid>(strBid);
+            foreach (var bidItem in bid.bidItems)
+            {
+                foreach (var bidItemTask in bidItem.bidItemTasks)
+                {
+                    if (bidItemTask.projectTaskType.parentType == "translation")
+                    {
+                        bidItemTask.attributes = new Attributes();
+                        bidItemTask.attributes.numWords = 2;
+                    }
+                    else
+                    {
+                        bidItemTask.attributes = null;
+                    }
+                    bidItemTask.cost = 1;
+                }
+            }
+
+            return vendorClient.SubmitBid(117, bid);
+        }
+        
+        
     }
 }

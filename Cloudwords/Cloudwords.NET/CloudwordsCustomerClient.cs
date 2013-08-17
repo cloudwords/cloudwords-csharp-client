@@ -212,7 +212,7 @@ namespace Cloudwords.NET
             {
                 RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/source/content", APIToken, Enums.HttpVerb.GET, "");
                 restServiceClient.IsFileDownload = true;
-                response = (HttpWebResponse) restServiceClient.ProcessRequest();
+                response = (HttpWebResponse)restServiceClient.ProcessRequestForFileDownload();
             }
             catch (Exception ex)
             {
@@ -278,7 +278,7 @@ namespace Cloudwords.NET
             {
                 RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/reference/" + referenceID + "/content", APIToken, Enums.HttpVerb.GET, "");
                 restServiceClient.IsFileDownload = true;
-                response = (HttpWebResponse)restServiceClient.ProcessRequest();
+                response = (HttpWebResponse)restServiceClient.ProcessRequestForFileDownload();
             }
             catch (Exception ex)
             {
@@ -430,7 +430,7 @@ namespace Cloudwords.NET
             {
                 RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/translated/content", APIToken, Enums.HttpVerb.GET, "");
                 restServiceClient.IsFileDownload = true;
-                response = (HttpWebResponse)restServiceClient.ProcessRequest();
+                response = (HttpWebResponse)restServiceClient.ProcessRequestForFileDownload();
             }
             catch (Exception ex)
             {
@@ -473,7 +473,7 @@ namespace Cloudwords.NET
             {
                 RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/translated/language/" + languageCode + "content", APIToken, Enums.HttpVerb.GET, "");
                 restServiceClient.IsFileDownload = true;
-                response = (HttpWebResponse)restServiceClient.ProcessRequest();
+                response = (HttpWebResponse)restServiceClient.ProcessRequestForFileDownload();
             }
             catch (Exception ex)
             {

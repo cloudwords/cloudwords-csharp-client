@@ -129,6 +129,18 @@ namespace Cloudwords.NET.Classes
             }
           return responseValue;
         }
+        public HttpWebResponse ProcessRequestForFileDownload()
+        {
+            var request = (HttpWebRequest)WebRequest.Create(EndPoint);
+            HttpWebResponse responseValue =null;
+            request.Method = Method.ToString();
+            request.Accept = ContentType;
+            request.ContentType = "application/json; charset=UTF-8";
+            request.Headers.Add("Authorization", "UserToken " + APIToken);
+            responseValue = (HttpWebResponse)request.GetResponse();
+
+            return responseValue;
+        }
         private static byte[] GetMultipartFormData(Dictionary<string, object> postParameters, string boundary)
         {
             Stream formDataStream = new System.IO.MemoryStream();

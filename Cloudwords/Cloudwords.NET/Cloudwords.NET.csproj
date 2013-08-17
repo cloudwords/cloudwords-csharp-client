@@ -44,16 +44,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Assignee.cs" />
+    <Compile Include="Classes\Attributes.cs" />
+    <Compile Include="Classes\Bid.cs" />
+    <Compile Include="Classes\BidItem.cs" />
+    <Compile Include="Classes\BidItemTask.cs" />
     <Compile Include="Classes\BidRequest.cs" />
     <Compile Include="Classes\CustomerUser.cs" />
     <Compile Include="Classes\Department.cs" />
     <Compile Include="Classes\Follower.cs" />
     <Compile Include="Classes\IntendedUse.cs" />
+    <Compile Include="Classes\Language.cs" />
     <Compile Include="Classes\MIMEAssistant.cs" />
     <Compile Include="Classes\Owner.cs" />
     <Compile Include="Classes\PreferredVendor.cs" />
     <Compile Include="Classes\Project.cs" />
     <Compile Include="Classes\ProjectTask.cs" />
+    <Compile Include="Classes\ProjectTaskType.cs" />
     <Compile Include="Classes\RestServiceClient.cs" />
     <Compile Include="Classes\SourceLanguage.cs" />
     <Compile Include="Classes\Status.cs" />
