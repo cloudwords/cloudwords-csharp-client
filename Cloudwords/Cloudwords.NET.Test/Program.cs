@@ -18,9 +18,8 @@ namespace Cloudwords.NET.Test
         static void Main(string[] args)
         {
             customerClient = new CloudwordsCustomerClient("https://api-stage.cloudwords.com/1/", "bb8568eb355aa091fb5bee0fcad5e902afd5f268217919488c269fbd3de73455");
-           // vendorClient = new CloudwordsVendorClient("https://api-sandbox.cloudwords.com/1/", "037a0a158e362009512aa09cdaacddc5ac95e77d8bcb028f7e5a3e9c95f74deb");
+            // vendorClient = new CloudwordsVendorClient("https://api-sandbox.cloudwords.com/1/", "037a0a158e362009512aa09cdaacddc5ac95e77d8bcb028f7e5a3e9c95f74deb");
             vendorClient = new CloudwordsVendorClient("https://api-sandbox.cloudwords.com/1/", "a5e8810e6a4b5639bb99a7cc95d234d18083557d74ac26b5e9201f8511dfbdb8");
-           
             
             // Test Create Project function
            // Console.WriteLine(Customer_CreateProject_Test());
@@ -196,11 +195,58 @@ namespace Cloudwords.NET.Test
             // Test Vendor Accept/Reject Bid function
             //Console.WriteLine(Vendor_AcceptRejectBid_Test());
             
-             // Test Vendor Submit Bid function
-            Console.WriteLine(Vendor_SubmitBid_Test());
+            // Test Vendor Submit Bid function
+            //Console.WriteLine(Vendor_SubmitBid_Test());
             
+            // Test Vendor Upload Language Deliverable function
+            //Console.WriteLine(Vendor_UploadLanguageDeliverable_Test());
             
-           Console.ReadLine();
+            // Test Vendor Get the Bundled Translated Materials function
+            // Console.WriteLine(Vendor_GetBundledTranslatedMaterials_Test());
+
+            // Test Vendor Download the Bundled Translated Materials function
+            // Console.WriteLine(Vendor_DownloadBundledTranslatedMaterials_Test());
+
+            // Test Vendor Get All Translated Materials by Language function
+            // Console.WriteLine(Vendor_GetAllTranslatedMaterialsByLanguage_Test());
+
+            // Test Vendor Get a Translated Material by Language function
+            // Console.WriteLine(Vendor_GetATranslatedMaterialByLanguage_Test());
+
+            // Test Vendor Download Translated Material by Language function
+            // Console.WriteLine(Vendor_DownloadTranslatedMaterialByLanguage_Test());
+
+            // Test Vendor Upload Translation Memory function
+            // Console.WriteLine(Vendor_UploadTranslationMemory_Test());
+
+            // Test Vendor Get TM Metadata function
+            // Console.WriteLine(Vendor_GetTMMetadata_Test());
+
+            // Test Vendor Download TM function
+            // Console.WriteLine(Vendor_DownloadTM_Test());
+
+            // Test Vendor Get Project Tasks function
+            // Console.WriteLine(Vendor_GetProjectTasks_Test());
+
+            // Test Vendor Get Project Tasks with Status function
+             Console.WriteLine(Vendor_GetProjectTasksWithStatus_Test());
+
+            // Test Vendor Get Project Task function
+            // Console.WriteLine(Vendor_GetProjectTask_Test());
+
+            // Test Vendor Get All Project Tasks function
+            // Console.WriteLine(Vendor_GetAllProjectTasks_Test());
+
+            // Test Vendor Get All Project Tasks With Status function
+            // Console.WriteLine(Vendor_GetAllProjectTasksWithStatus_Test());
+
+            // Test Vendor Update Project Task function
+            // Console.WriteLine(Vendor_UpdateProjectTask_Test());
+
+            // Test Vendor Get Task Attachment function
+            // Console.WriteLine(Vendor_GetTaskAttachment_Test());
+           
+            Console.ReadLine();
 
         }
         private static string Customer_CreateProject_Test()
@@ -530,7 +576,77 @@ namespace Cloudwords.NET.Test
 
             return vendorClient.SubmitBid(117, bid);
         }
-        
-        
+
+        private static string Vendor_UploadLanguageDeliverable_Test()
+        {
+            return vendorClient.UploadLanguageDeliverable(117, "fr", @"C:\test.xls_2_updated.zip");
+        }
+        private static string Vendor_GetBundledTranslatedMaterials_Test()
+        {
+            return vendorClient.GetBundledTranslatedMaterials(117);
+        }
+        private static HttpWebResponse Vendor_DownloadBundledTranslatedMaterials_Test()
+        {
+            return vendorClient.DownloadBundledTranslatedMaterials(117);
+        }
+        private static string Vendor_GetAllTranslatedMaterialsByLanguage_Test()
+        {
+            return vendorClient.GetAllTranslatedMaterialsByLanguage(117);
+        }
+        private static string Vendor_GetATranslatedMaterialByLanguage_Test()
+        {
+            return vendorClient.GetATranslatedMaterialByLanguage(117, "fr");
+        }
+        private static HttpWebResponse Vendor_DownloadTranslatedMaterialByLanguage_Test()
+        {
+            return vendorClient.DownloadTranslatedMaterialByLanguage(117, "fr");
+        }
+        private static string Vendor_UploadTranslationMemory_Test()
+        {
+            return vendorClient.UploadTranslationMemory(117, @"C:\test3.tmx");
+        }
+        private static string Vendor_GetTMMetadata_Test()
+        {
+            return vendorClient.GetTMMetadata(117);
+        }
+        private static HttpWebResponse Vendor_DownloadTM_Test()
+        {
+            return vendorClient.DownloadTM(117);
+        }
+        private static string Vendor_GetProjectTasks_Test()
+        {
+            return vendorClient.GetProjectTasks(117);
+        }
+        private static string Vendor_GetProjectTasksWithStatus_Test()
+        {
+            return vendorClient.GetProjectTasksWithStatus(133, "open");
+        }
+        private static string Vendor_GetProjectTask_Test()
+        {
+            return vendorClient.GetProjectTask(117, 1071);
+        }
+        private static string Vendor_GetAllProjectTasks_Test()
+        {
+            return vendorClient.GetAllProjectTasks();
+        }
+        private static string Vendor_GetAllProjectTasksWithStatus_Test()
+        {
+            return vendorClient.GetAllProjectTasksWithStatus("closed");
+        }
+        private static string Vendor_UpdateProjectTask_Test()
+        {
+            ProjectTask projectTask = new ProjectTask();
+            projectTask.name = "test Task";
+            projectTask.type = "custom";
+            projectTask.assignee = null;
+            projectTask.dueDate = null;
+            projectTask.startDate = null;
+            projectTask.description="test task description";
+            return customerClient.UpdateProjectTask(117, 1111, projectTask);
+        }
+        private static string Vendor_GetTaskAttachment_Test()
+        {
+            return vendorClient.GetTaskAttachment(133, 1111);
+        }
     }
 }

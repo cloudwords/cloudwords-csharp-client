@@ -193,6 +193,256 @@ namespace Cloudwords.NET
             }
             return response;
         }
+        public string UploadLanguageDeliverable(int projectID, string langcode, string fileFullName)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/translated/language/" + langcode, APIToken, Enums.HttpVerb.PUT, "");
+                restServiceClient.IsFileUpload = true;
+                restServiceClient.FileFullName = fileFullName;
+                if (File.Exists(fileFullName))
+                {
+                    response = (String)restServiceClient.ProcessRequest();
+                }
+                else
+                {
+                    response = "error: File does not exist";
+                }
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetBundledTranslatedMaterials(int projectID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/translated.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public HttpWebResponse DownloadBundledTranslatedMaterials(int projectID)
+        {
+            HttpWebResponse response = null;
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/translated/content", APIToken, Enums.HttpVerb.GET, "");
+                restServiceClient.IsFileDownload = true;
+                response = (HttpWebResponse)restServiceClient.ProcessRequestForFileDownload();
+            }
+            catch (Exception ex)
+            {
+                // response = ex.Message;
+            }
+            return response;
+        }
+        public string GetAllTranslatedMaterialsByLanguage(int projectID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/translated/language.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetATranslatedMaterialByLanguage(int projectID, string languageCode)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/translated/language/" + languageCode + ".json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public HttpWebResponse DownloadTranslatedMaterialByLanguage(int projectID, string languageCode)
+        {
+            HttpWebResponse response = null;
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/translated/language/" + languageCode + "/content", APIToken, Enums.HttpVerb.GET, "");
+                restServiceClient.IsFileDownload = true;
+                response = (HttpWebResponse)restServiceClient.ProcessRequestForFileDownload();
+            }
+            catch (Exception ex)
+            {
+                // response = ex.Message;
+            }
+            return response;
+        }
+        public string UploadTranslationMemory(int projectID, string fileFullName)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/tm", APIToken, Enums.HttpVerb.PUT, "");
+                restServiceClient.IsFileUpload = true;
+                restServiceClient.FileFullName = fileFullName;
+                if (File.Exists(fileFullName))
+                {
+                    response = (String)restServiceClient.ProcessRequest();
+                }
+                else
+                {
+                    response = "error: File does not exist";
+                }
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetTMMetadata(int projectID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/translated.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public HttpWebResponse DownloadTM(int projectID)
+        {
+            HttpWebResponse response = null;
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/tm/content", APIToken, Enums.HttpVerb.GET, "");
+                restServiceClient.IsFileDownload = true;
+                response = (HttpWebResponse)restServiceClient.ProcessRequestForFileDownload();
+            }
+            catch (Exception ex)
+            {
+                // response = ex.Message;
+            }
+            return response;
+        }
+        public string GetProjectTasks(int projectID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/task.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetProjectTasksWithStatus(int projectID, string status)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/task/status/" + status + ".json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetProjectTask(int projectID, int taskID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/task/" + taskID + ".json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetAllProjectTasks()
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "task.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string GetAllProjectTasksWithStatus(string status)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "task/status/" + status + ".json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
+        public string UpdateProjectTask(int projectID, int taskID, ProjectTask projectTask)
+        {
+            string response = "";
+            try
+            {
 
+                IsoDateTimeConverter converter = new IsoDateTimeConverter();
+                converter.DateTimeFormat = "yyyy-MM-ddTHH:mm:ss.fffZ";
+                converter.Culture = System.Globalization.CultureInfo.InvariantCulture;
+                string jsonData = JsonConvert.SerializeObject(projectTask, converter);
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/task/" + taskID, APIToken, Enums.HttpVerb.PUT, jsonData);
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+
+            return response;
+        }
+        public string GetTaskAttachment(int projectID, int taskID)
+        {
+            string response = "";
+            try
+            {
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/task/" + taskID + "/file/attachment/content.json", APIToken, Enums.HttpVerb.GET, "");
+                response = (String)restServiceClient.ProcessRequest();
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
+            }
+            return response;
+        }
     }
 }

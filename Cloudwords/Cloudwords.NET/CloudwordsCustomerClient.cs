@@ -471,7 +471,7 @@ namespace Cloudwords.NET
             HttpWebResponse response = null;
             try
             {
-                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/translated/language/" + languageCode + "content", APIToken, Enums.HttpVerb.GET, "");
+                RestServiceClient restServiceClient = new RestServiceClient(API_URL + "project/" + projectID + "/file/translated/language/" + languageCode + "/content", APIToken, Enums.HttpVerb.GET, "");
                 restServiceClient.IsFileDownload = true;
                 response = (HttpWebResponse)restServiceClient.ProcessRequestForFileDownload();
             }
