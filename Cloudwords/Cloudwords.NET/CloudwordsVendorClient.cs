@@ -86,9 +86,9 @@ namespace Cloudwords.NET
                 response = (HttpWebResponse)restServiceClient.ProcessRequestForFileDownload();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // response = ex.Message;
+                
             }
             return response;
         }
@@ -129,9 +129,9 @@ namespace Cloudwords.NET
                 restServiceClient.IsFileDownload = true;
                 response = (HttpWebResponse)restServiceClient.ProcessRequestForFileDownload();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // response = ex.Message;
+
             }
             return response;
         }
@@ -239,9 +239,8 @@ namespace Cloudwords.NET
                 restServiceClient.IsFileDownload = true;
                 response = (HttpWebResponse)restServiceClient.ProcessRequestForFileDownload();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // response = ex.Message;
             }
             return response;
         }
@@ -282,9 +281,8 @@ namespace Cloudwords.NET
                 restServiceClient.IsFileDownload = true;
                 response = (HttpWebResponse)restServiceClient.ProcessRequestForFileDownload();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // response = ex.Message;
             }
             return response;
         }
@@ -334,9 +332,8 @@ namespace Cloudwords.NET
                 restServiceClient.IsFileDownload = true;
                 response = (HttpWebResponse)restServiceClient.ProcessRequestForFileDownload();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // response = ex.Message;
             }
             return response;
         }

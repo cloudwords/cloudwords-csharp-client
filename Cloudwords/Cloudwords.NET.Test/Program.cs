@@ -12,16 +12,25 @@ namespace Cloudwords.NET.Test
 {
     class Program
     {
-        static CloudwordsCustomerClient customerClient;
+        
+        /// <summary>
+        /// Set you API URL here Including the version number for example https://api.cloudwords.com/1/
+        /// </summary>
+        private static string API_URL = "";
 
+        /// <summary>
+        /// Set your API Key here
+        /// </summary>
+        private static string TOKEN="";
+       
+        static CloudwordsCustomerClient customerClient;
         static CloudwordsVendorClient vendorClient;
         static void Main(string[] args)
         {
-            customerClient = new CloudwordsCustomerClient("https://api-stage.cloudwords.com/1/", "bb8568eb355aa091fb5bee0fcad5e902afd5f268217919488c269fbd3de73455");
-            // vendorClient = new CloudwordsVendorClient("https://api-sandbox.cloudwords.com/1/", "037a0a158e362009512aa09cdaacddc5ac95e77d8bcb028f7e5a3e9c95f74deb");
-            vendorClient = new CloudwordsVendorClient("https://api-sandbox.cloudwords.com/1/", "a5e8810e6a4b5639bb99a7cc95d234d18083557d74ac26b5e9201f8511dfbdb8");
-            
-            // Test Create Project function
+            //customerClient = new CloudwordsCustomerClient(API, Token);
+            vendorClient = new CloudwordsVendorClient(API_URL, TOKEN);
+             
+           // Test Create Project function
            // Console.WriteLine(Customer_CreateProject_Test());
 
            // Test Get Project function
@@ -229,7 +238,7 @@ namespace Cloudwords.NET.Test
             // Console.WriteLine(Vendor_GetProjectTasks_Test());
 
             // Test Vendor Get Project Tasks with Status function
-             Console.WriteLine(Vendor_GetProjectTasksWithStatus_Test());
+           //  Console.WriteLine(Vendor_GetProjectTasksWithStatus_Test());
 
             // Test Vendor Get Project Task function
             // Console.WriteLine(Vendor_GetProjectTask_Test());

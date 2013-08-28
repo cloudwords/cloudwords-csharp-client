@@ -4,4 +4,3 @@ C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords
 C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET\bin\Debug\Newtonsoft.Json.xml
 C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET\obj\Debug\Cloudwords.NET.dll
 C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET\obj\Debug\Cloudwords.NET.pdb
-C:\Users\khurram\Documents\GitHub\cloudwords-csharp-client\Cloudwords\Cloudwords.NET\obj\Debug\Cloudwords.NET.csprojResolveAssemblyReference.cache
